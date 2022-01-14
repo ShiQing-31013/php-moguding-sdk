@@ -9,6 +9,8 @@ class Client
 {
     protected string $baseUri = 'https://api.moguding.net:9000';
 
+    protected string $salt = '3478cbbc33f84bd00d75d7dfa69e0daa';
+
     protected function client() : Guzzle
     {
         $config = [
