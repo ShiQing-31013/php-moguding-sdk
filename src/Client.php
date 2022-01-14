@@ -33,6 +33,22 @@ class Client
         return $this->body($response)[ 'data' ] ?? [];
     }
 
+    public function getPlan ( string $token, string $userType, int $userId ) : array
+    {
+        $response = $this->client()
+            ->post ( 'practice/plan/v3/getPlanByStu', [
+                'headers' => [
+                    'authorization' => $token,
+                ],
+                'json' => [
+                    'roleKey' => $userType,
+                    'sign'    => md5 ( sprintf ( '%d%s%s', $userId, $userType, $this->salt ) ),
+                ],
+            ] );
+
+        return $this->body($response)[ 'data' ][ 0 ] ?? [];
+    }
+
     protected function body ( string $response ) : array
     {
         $body = $response->getBody();
