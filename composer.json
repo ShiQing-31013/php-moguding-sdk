@@ -1,0 +1,18 @@
+{
+    "name": "laradocs/moguding",
+    "description": "蘑菇丁 SDK",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Laradocs\\Moguding\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "laradocs",
+            "email": "75692074@qq.com"
+        }
+    ],
+    "require": {}
+}
