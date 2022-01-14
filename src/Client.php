@@ -49,6 +49,31 @@ class Client
         return $this->body($response)[ 'data' ][ 0 ] ?? [];
     }
 
+    public function save ( string $token, int $userId, string $province, string $city, string $address, float $longitude, float $latitude, string $type, string $device, string $planId, string $description = '', string $country = '中国' ) : array
+    {
+        $response = $this->client()
+            ->post ( 'attendence/clock/v2/save', [
+                'headers' => [
+                    'authorization' => $token,
+                    'sign'          => md5 ( sprintf ('%s%s%s%d%s%s', $device, $type, $planId, $userId, $address, $this->salt ) ),
+                ],
+                'json' => [
+                    'country'     => $country,
+                    'province'    => $province,
+                    'city'        => $city,
+                    'address'     => $address,
+                    'longitude'   => $longitude,
+                    'latitude'    => $latitude,
+                    'type'        => $type,
+                    'device'      => $device,
+                    'planId'      => $planId,
+                    'description' => $description,
+                ],
+            ] );
+
+        return $this->body($response) ?? [];
+    }
+
     protected function body ( string $response ) : array
     {
         $body = $response->getBody();
