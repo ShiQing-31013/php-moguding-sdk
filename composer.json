@@ -14,5 +14,7 @@
             "email": "75692074@qq.com"
         }
     ],
-    "require": {}
+    "require": {
+        "guzzlehttp/guzzle": "^7.4"
+    }
 }
