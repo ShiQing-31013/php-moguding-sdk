@@ -1,8 +1,8 @@
 # 🍄蘑菇丁 SDK
-[![Total Downloads](https://poser.pugx.org/laradocs/php-moguding-sdk/d/total.svg)](https://packagist.org/packages/laradocs/moguding)
-[![Latest Stable Version](https://poser.pugx.org/laradocs/php-moguding-sdk/v/stable.svg)](https://packagist.org/packages/laradocs/moguding)
-[![Latest Unstable Version](https://poser.pugx.org/laradocs/php-moguding-sdk/v/unstable.svg)](https://packagist.org/packages/laradocs/moguding)
-[![License](https://poser.pugx.org/laradocs/php-moguding-sdk/license.svg)](https://packagist.org/packages/laradocs/moguding)
+[![Total Downloads](https://poser.pugx.org/laradocs/moguding/d/total.svg)](https://packagist.org/packages/laradocs/moguding)
+[![Latest Stable Version](https://poser.pugx.org/laradocs/moguding/v/stable.svg)](https://packagist.org/packages/laradocs/moguding)
+[![Latest Unstable Version](https://poser.pugx.org/laradocs/moguding/v/unstable.svg)](https://packagist.org/packages/laradocs/moguding)
+[![License](https://poser.pugx.org/laradocs/moguding/license.svg)](https://packagist.org/packages/laradocs/moguding)
 
 🍄蘑菇丁自动签到|打卡组件
 
