@@ -112,7 +112,7 @@ $save = $factory->save (
 );
 ```
 
-如有其它疑问或问题，请在 **[Issues](/issues)** 提出。
+如有其它疑问或问题，请在 **[Issues](https://github.com/laradocs/php-moguding-sdk/issues)** 提出。
 
 ## 协作
 
