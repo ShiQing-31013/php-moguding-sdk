@@ -7,10 +7,21 @@ use GuzzleHttp\Client as Guzzle;
 
 class Client
 {
+    /**
+     * @var string 接口
+     */
     protected string $baseUri = 'https://api.moguding.net:9000';
 
+    /**
+     * @var string 盐值
+     */
     protected string $salt = '3478cbbc33f84bd00d75d7dfa69e0daa';
 
+    /**
+     * 基本配置
+     *
+     * @return Guzzle
+     */
     protected function client() : Guzzle
     {
         $config = [
@@ -21,6 +32,16 @@ class Client
         return $factory;
     }
 
+    /**
+     * 用户登录
+     *
+     * @param string $driver
+     * @param string $phone
+     * @param string $password
+     * @return array
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \JsonException
+     */
     public function login ( string $driver, string $phone, string $password ) : array
     {
         $response = $this->client()
@@ -35,6 +56,16 @@ class Client
         return $this->body($response)[ 'data' ] ?? [];
     }
 
+    /**
+     * 获取计划
+     *
+     * @param string $token
+     * @param string $userType
+     * @param int $userId
+     * @return array
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \JsonException
+     */
     public function getPlan ( string $token, string $userType, int $userId ) : array
     {
         $response = $this->client()
@@ -51,6 +82,25 @@ class Client
         return $this->body($response)[ 'data' ][ 0 ] ?? [];
     }
 
+    /**
+     * 打卡保存
+     *
+     * @param string $token
+     * @param int $userId
+     * @param string $province
+     * @param string $city
+     * @param string $address
+     * @param float $longitude
+     * @param float $latitude
+     * @param string $type
+     * @param string $device
+     * @param string $planId
+     * @param string $description
+     * @param string $country
+     * @return array
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \JsonException
+     */
     public function save ( string $token, int $userId, string $province, string $city, string $address, float $longitude, float $latitude, string $type, string $device, string $planId, string $description = '', string $country = '中国' ) : array
     {
         $response = $this->client()
@@ -76,6 +126,13 @@ class Client
         return $this->body($response) ?? [];
     }
 
+    /**
+     * 返回响应数据
+     *
+     * @param string $response
+     * @return array
+     * @throws \JsonException
+     */
     protected function body ( string $response ) : array
     {
         $body = $response->getBody();
