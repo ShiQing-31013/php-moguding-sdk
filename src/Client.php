@@ -22,7 +22,7 @@ class Client
      *
      * @return Guzzle
      */
-    protected function client() : Guzzle
+    protected function client(): Guzzle
     {
         $config = [
             'base_uri' => $this->baseUri,
@@ -42,7 +42,7 @@ class Client
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \JsonException
      */
-    public function login ( string $driver, string $phone, string $password ) : array
+    public function login ( string $driver, string $phone, string $password ): array
     {
         $response = $this->client()
             ->post ( 'session/user/v1/login', [
@@ -66,7 +66,7 @@ class Client
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \JsonException
      */
-    public function getPlan ( string $token, string $userType, int $userId ) : array
+    public function getPlan ( string $token, string $userType, int $userId ): array
     {
         $response = $this->client()
             ->post ( 'practice/plan/v3/getPlanByStu', [
@@ -101,7 +101,7 @@ class Client
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \JsonException
      */
-    public function save ( string $token, int $userId, string $province, string $city, string $address, float $longitude, float $latitude, string $type, string $device, string $planId, string $description = '', string $country = '中国' ) : array
+    public function save ( string $token, int $userId, string $province, string $city, string $address, float $longitude, float $latitude, string $type, string $device, string $planId, string $description = '', string $country = '中国' ): array
     {
         $response = $this->client()
             ->post ( 'attendence/clock/v2/save', [
@@ -133,7 +133,7 @@ class Client
      * @return array
      * @throws \JsonException
      */
-    protected function body ( string $response ) : array
+    protected function body ( string $response ): array
     {
         $body = $response->getBody();
         try {

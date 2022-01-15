@@ -1,0 +1,8 @@
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "createTime": "2022-01-15 11:35:58",
+    "attendanceId": "xxxxxxxxxxxxxxxxxxxxxxxxx"
+  }
+}
