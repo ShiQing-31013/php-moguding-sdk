@@ -15,6 +15,12 @@ PHP 需要 8.0 或以上版本
 composer require laradocs/moguding
 ```
 
+### 更新
+
+```
+composer update laradocs/moguding
+```
+
 ## 用法
 
 ```php
@@ -24,13 +30,13 @@ $factory = new Client();
 /**
  * 用户登录
  * 
- * @param string $driver android|ios
+ * @param string $device android|ios
  * @param string $phone 手机号码
  * @param string $password 密码
  * 
  * @return array
  */
-$user = $factory->login ( $driver, $phone, $password );
+$user = $factory->login ( $device, $phone, $password );
 // 登录成功返回的重要数据
 [
     "userId"   => "xxx",
@@ -41,9 +47,9 @@ $user = $factory->login ( $driver, $phone, $password );
 /**
  * 获取计划
  * 
- * @param string $token $user [ 'token' ]
- * @param string $userType $user [ 'userType' ]
- * @param int $userId $user [ 'userId']
+ * @param string $token $user['token']
+ * @param string $userType $user['userType']
+ * @param int $userId $user['userId']
  * 
  * @return array
  */
@@ -56,8 +62,8 @@ $getPlan = $factory->getPlan ( $token, $userType, $userId );
 /**
  * 打卡保存
  * 
- * @param string $token $user [ 'token' ]
- * @param string $userId $user [ 'userId' ]
+ * @param string $token $user['token']
+ * @param string $userId $user['userId']
  * @param string $province 省
  * @param string $city 市
  * @param string $address 详细地址（不要带上省和市）

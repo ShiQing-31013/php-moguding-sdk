@@ -42,12 +42,12 @@ class Client
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \JsonException
      */
-    public function login ( string $driver, string $phone, string $password ): array
+    public function login ( string $device, string $phone, string $password ): array
     {
         $response = $this->client()
             ->post ( 'session/user/v1/login', [
                 'json' => [
-                    'loginType' => $driver,
+                    'loginType' => $device,
                     'phone' => $phone,
                     'password' => $password
                 ],
@@ -135,7 +135,7 @@ class Client
      */
     protected function body ( string $response ): array
     {
-        $body = $response->getBody();
+        $body = (string) $response->getBody();
         try {
             $data = json_decode ( $body, true, 512, JSON_THROW_ON_ERROR );
         } catch ( TokenExpiredException ) {
