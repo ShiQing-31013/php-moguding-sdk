@@ -38,7 +38,7 @@ $factory = new Client();
  */
 $user = $factory->login ( $device, $phone, $password );
 // 登录成功返回的重要数据
-[
+data: [
     "userId"   => "xxx",
     "token"    => "xxx",
     "userType" => "student" // 这里教师账号返回的应该是 teacher，我没测试过
@@ -55,7 +55,7 @@ $user = $factory->login ( $device, $phone, $password );
  */
 $getPlan = $factory->getPlan ( $token, $userType, $userId );
 // 获取计划返回的重要数据
-[
+data[0]: [
     "planId" => "xxx",
 ]
 
@@ -92,7 +92,7 @@ $save = $factory->save (
     $country
 );
 // 打卡保存返回的数据
-[
+data: [
   "code" => 200
   "msg" => "success"
   "data" => [

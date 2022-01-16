@@ -2,6 +2,7 @@
 
 namespace Laradocs\Moguding;
 
+use GuzzleHttp\Psr7\Response;
 use Laradocs\Moguding\Exceptions\TokenExpiredException;
 use GuzzleHttp\Client as Guzzle;
 
@@ -53,7 +54,7 @@ class Client
                 ],
             ] );
 
-        return $this->body($response)[ 'data' ] ?? [];
+        return $this->body($response) ?? [];
     }
 
     /**
@@ -79,7 +80,7 @@ class Client
                 ],
             ] );
 
-        return $this->body($response)[ 'data' ][ 0 ] ?? [];
+        return $this->body($response) ?? [];
     }
 
     /**
@@ -129,13 +130,13 @@ class Client
     /**
      * 返回响应数据
      *
-     * @param string $response
+     * @param Response $response
      * @return array
      * @throws \JsonException
      */
-    protected function body ( string $response ): array
+    protected function body ( Response $response ): array
     {
-        $body = (string) $response->getBody();
+        $body = $response->getBody();
         try {
             $data = json_decode ( $body, true, 512, JSON_THROW_ON_ERROR );
         } catch ( TokenExpiredException ) {
